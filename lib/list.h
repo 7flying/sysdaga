@@ -6,16 +6,16 @@
 /* Structure for linked list elements. */
 typedef struct ListElement_ {
 	void				*data;
-	struct ListElement_	next;
+	struct ListElement_	*next;
 } ListElement;
 
 /* Structure for linked list. */
 typedef struct List_ {
-	int			size;
-	int			(*match) (const void *key1, const void *key2);
-	void		(*destroy) (void *data);
-	ListElement *head;
-	ListElement *tail;
+	int				size;
+	int				(*match) (const void *key1, const void *key2);
+	void			(*destroy) (void *data);
+	ListElement 	*head;
+	ListElement 	*tail;
 } List;
 
 /* Interface */
@@ -37,7 +37,7 @@ int list_remove_next(List *list, ListElement *element, void **data);
 /* Checks if the element if the head of the list. */
 #define list_is_head(list, element) ((element) == (list)->head ? 1 : 0)
 /* Checks if the element if the tail of the list. */
-#define list_is_tail(list, element) ((element) == (list)->tail ? 1 : 0)
+#define list_is_tail(list, element) ((element) == (list)->NULL ? 1 : 0)
 /* Gets the data from a list element. */
 #define list_data(element) ((element)->data)
 /* Gets the next element pointed by a list element. */

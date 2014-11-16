@@ -1,3 +1,4 @@
+#include <string.h>
 #include <stdlib.h>
 #include "list.h"
 
@@ -14,7 +15,7 @@ void list_destroy(List *list)
 	void *data;
 	while (list_size(list) > 0) {
 		if (list_remove_next(list, NULL, (void**)&data) == 0 
-			&& list->destroy !=null) {
+			&& list->destroy != NULL) {
 			list->destroy(data);
 		}
 	}
@@ -64,7 +65,7 @@ int list_remove_next(List *list, ListElement *element, void **data)
 		/* Remove the next element */
 		if (element->next == NULL)
 			return -1;	
-		*data = elemen->next->data;
+		*data = element->next->data;
 		oldELement = element->next;
 		element->next = element->next->next;
 	}

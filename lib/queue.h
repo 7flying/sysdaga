@@ -15,7 +15,7 @@ typedef List Queue;
 /* Inserts an element at the tail of the queue*/
 int queue_insert(Queue *queue, const void *data);
 /* Removes and returns the element at the head of the queue */
-int queue_get(Queue *queue, const void **data);
+int queue_get(Queue *queue, void **data);
 /* Returns but not deletes the element at the head of a queue */
 #define queue_peek(queue) ((queue)->head == NULL ? NULL : (queue)->head->data)
 /* Returns the size of a queue */
